@@ -1,0 +1,3 @@
+<!--pages/pets/index.wxml-->
+<text>pages/pets/index.wxml</text>
+<text>{{header}}</text>

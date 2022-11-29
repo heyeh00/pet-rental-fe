@@ -1,6 +1,20 @@
 {
     "projectname": "pet-rental-fe",
     "setting": {
-        "compileHotReLoad": true
+        "compileHotReLoad": true,
+        "urlCheck": false
+    },
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "pages/pets/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
     }
 }
