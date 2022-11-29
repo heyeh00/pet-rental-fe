@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/pets/index",
     "pages/pets/show",
     "pages/pets/create"

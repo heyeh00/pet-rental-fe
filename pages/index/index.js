@@ -1,5 +1,4 @@
-// pages/pets/index.js
-import event from '@codesmiths/event';
+// pages/index/index.js
 Page({
 
     /**
@@ -13,30 +12,9 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-      if (getApp().globalData.header) {
-          console.log(getApp().globalData.header);
-          this.getEvents();
-      } else {
-          event.on('tokenReady', this, this.getEvents);
-      }
-    },
-    getEvents() {
-      const app = getApp();
-      console.log("APP", app)
-      const header = { Authorization: app.getHeader() }
-      console.log("HEADER", header)
-      const page = this;
-      console.log("PAGE", page)
 
-      console.log('header', header);
-      wx.request({
-        url: `${app.getUrl()}pets`,
-        header,
-        success(res) {
-          page.setData({ events: res.data.events })
-        }
-      })
     },
+
     /**
      * Lifecycle function--Called when page is initially rendered
      */
