@@ -14,7 +14,7 @@ Page({
      */
     onLoad(options) {
       if (getApp().globalData.header) {
-          console.log(getApp().globalData.header);
+          console.log("===ONLOAD===", getApp().globalData.header);
           this.getEvents();
       } else {
           event.on('tokenReady', this, this.getEvents);
@@ -30,10 +30,11 @@ Page({
 
       console.log('header', header);
       wx.request({
-        url: `${app.getUrl()}pets`,
+        url: `${app.getUrl()}/pets`,
         header,
         success(res) {
-          page.setData({ events: res.data.events })
+          console.log("REQUEST RES", res.data)
+          page.setData({ user: res.data.pets })
         }
       })
     },
