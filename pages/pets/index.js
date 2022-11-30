@@ -1,5 +1,7 @@
 // pages/pets/index.js
 import event from '@codesmiths/event';
+import { getData } from '../../utils/getdata';
+
 Page({
 
     /**
@@ -15,28 +17,16 @@ Page({
     onLoad(options) {
       if (getApp().globalData.header) {
           console.log("===ONLOAD===", getApp().globalData.header);
-          this.getEvents();
+          this.getPets();
       } else {
-          event.on('tokenReady', this, this.getEvents);
+          event.on('tokenReady', this, this.getPets);
       }
     },
-    getEvents() {
-      const app = getApp();
-      console.log("APP", app)
-      const header = { Authorization: app.getHeader() }
-      console.log("HEADER", header)
-      const page = this;
-      console.log("PAGE", page)
-
-      console.log('header', header);
-      wx.request({
-        url: `${app.getUrl()}/pets`,
-        header,
-        success(res) {
-          console.log("REQUEST RES", res.data)
-          page.setData({ user: res.data.pets })
-        }
-      })
+    getPets() {
+        getData('/pets', this).then((res) => {
+          console.log(123123, res);
+          this.setData({ user: res.data.pets })
+        })
     },
     /**
      * Lifecycle function--Called when page is initially rendered

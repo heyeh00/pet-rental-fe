@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/pets/index",
     "pages/pets/show",
-    "pages/pets/create"
+    "pages/pets/create",
+    "pages/profile/profile"
   ],
   "window":{
     "backgroundTextStyle":"light",

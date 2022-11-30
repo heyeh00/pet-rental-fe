@@ -23,7 +23,7 @@
                 },
                 {
                     "name": "",
-                    "pathName": "pages/index/index",
+                    "pathName": "pages/profile/profile",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
