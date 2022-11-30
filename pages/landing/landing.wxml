@@ -1,0 +1,8 @@
+<!--pages/landing/landing.wxml-->
+<view class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(/images/landing-img.png)" >
+    <view class="info">
+        <view class="header">Great pets.</view>
+        <view class="detail">Too many cute pets are waiting for you</view>
+    </view>
+        <button bindtap="goToNextPage" class="btn" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Get started</button>
+</view>

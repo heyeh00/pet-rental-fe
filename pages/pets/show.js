@@ -15,6 +15,10 @@ Page({
 
     },
 
+    goToReserve() {
+
+    },
+
     /**
      * Lifecycle function--Called when page is initially rendered
      */
