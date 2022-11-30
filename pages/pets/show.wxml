@@ -1,2 +1,26 @@
 <!--pages/pets/show.wxml-->
-<text>pages/pets/show.wxml</text>
+
+<view class="card">
+    <view style="display: flex; justify-content: center;">
+        <image src="panda.jpg" id="panda" class="panda-pic" />
+    </view>
+    <view class="description" > 
+        <view>Henry is a 3-year-old nice Panda guy. He’s easy-going, gentle and full of patience. He loves coding, kung-fu and all sorts of fun activities. Need fresh bamboo and tons of booze every day! </view>
+    </view> 
+    <view class="other-info">
+    <view>
+        <view>￥10000/Day</view>
+        <view>@Beijing</view>
+    </view>
+        <view style="display: flex">
+            <view wx:for="{{5}}">*</view>
+        </view>
+    </view>
+</view>
+    <!-- <view class="name">
+        <view>Henry</view>
+    </view> -->
+<button bindtap="goToReserve" style="position: absolute; bottom: 100rpx; left: 50%; transform: translateX(-50%); background-color: rgb(199, 117, 117); color: white;">Reserve</button>
+
+
+
