@@ -3,22 +3,21 @@ import event from '@codesmiths/event';
 
 App({
   onLaunch() {
-    const page = this;
-    console.log("LAUNCH PAGE", page)
+    const that = this;
 
     wx.login({
       success(res) {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log("===LOGIN SUCCESS===", res);
+        console.log(that.baseUrl)
         wx.request({
-          url: `${page.getUrl()}login`,
+          url: `${that.getUrl()}/login`,
           method: "POST",
           data: { code: res.code },
           success(loginRes) {
-            console.log("===LOGIN RES===", loginRes);
-            page.globalData.user = loginRes.data.user;
-            page.globalData.header = loginRes.header['Authorization']
-            console.log("===HEADER===", page.getHeader());
+            // console.log("===LOGIN REQUEST===", loginRes);
+            that.globalData.user = loginRes.data.user;
+            that.globalData.header = loginRes.header['Authorization']
+            // console.log("===HEADER===", that.getHeader());
             event.emit('tokenReady')
           },
           failure(errors) {
@@ -38,8 +37,7 @@ App({
   },
 
   globalData: {
-    user: null,
-    header: null,
-    baseUrl: 'http://localhost:3000/api/v1/'
+    userInfo: null,
+    baseUrl: 'http://localhost:3000/api/v1'
   }
 })

@@ -1,0 +1,45 @@
+/* pages/landing/landing.wxss */
+.banner {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+  }
+
+  .header {
+    color: white;
+    opacity: .9;
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 200rpx;
+    padding-left: 50rpx;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  }
+  
+  .detail {
+    font-size: 25px;
+    color: white;
+    padding-top: 20rpx;
+    padding-left: 50rpx;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .btn {
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16rpx;
+    padding-bottom: 16rpx;
+    padding-left: 60rpx;
+    padding-right: 60rpx;
+    border-radius: 10rpx;
+    background-color: rgba(158, 54, 89, 0.938);
+    color: rgba(255, 255, 255, 0.904);
+    font-size: 35rpx;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 300;
+    bottom: -1000rpx;
+  }

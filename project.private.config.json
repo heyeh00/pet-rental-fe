@@ -15,8 +15,15 @@
                     "scene": null
                 },
                 {
-                    "name": "Show Page",
-                    "pathName": "pages/pets/show",
+                    "name": "",
+                    "pathName": "pages/landing/landing",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/profile/profile",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
