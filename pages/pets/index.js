@@ -30,10 +30,10 @@ Page({
 
       console.log('header', header);
       wx.request({
-        url: `${app.getUrl()}pets`,
+        url: `${app.getUrl()}/pets`,
         header,
         success(res) {
-          console.log("REQUEST RES", res.data.pets)
+          console.log("REQUEST RES", res.data)
           page.setData({ user: res.data.pets })
         }
       })
