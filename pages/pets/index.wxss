@@ -1,1 +1,70 @@
 /* pages/pets/index.wxss */
+/* pages/restaurants/index.wxss */
+.block {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+  font-size: 50rpx;
+} 
+
+.card-product {
+  overflow: hidden;
+  height: 240rpx;
+  width: 700rpx;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 10rpx;
+  border-radius: 30rpx;
+}
+
+image {
+  width: 350rpx;
+  height: 220rpx;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 40rpx;
+}
+
+.card-product-infos {
+    font-size: 30rpx;
+    color: grey;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.card-small {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20rpx;
+}
+
+.header {
+    width: 100%;
+    margin-left: 120rpx;
+    color:rgba(58, 54, 54, 0.89);
+    opacity: .9;
+    font-size: 60rpx;
+    font-weight: bold;
+    padding: 10rpx;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+
+  .result {
+    width: 100%;
+    margin-left: 120rpx;
+    color: grey;
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+    text-align: left;
+    margin-bottom: 30rpx;
+  }

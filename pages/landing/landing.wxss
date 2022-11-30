@@ -13,7 +13,7 @@
     font-weight: bold;
     padding-top: 200rpx;
     padding-left: 50rpx;
-    font-family: sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   }
   
@@ -22,7 +22,7 @@
     color: white;
     padding-top: 20rpx;
     padding-left: 50rpx;
-    font-family: sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
   .btn {
@@ -39,7 +39,7 @@
     background-color: rgba(158, 54, 89, 0.938);
     color: rgba(255, 255, 255, 0.904);
     font-size: 35rpx;
-    font-family: sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 300;
-    bottom: -800rpx;
+    bottom: -1000rpx;
   }
