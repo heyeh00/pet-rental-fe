@@ -20,7 +20,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 10rpx;
+  margin: 20rpx 10rpx;
   border-radius: 30rpx;
 }
 
@@ -66,5 +66,6 @@ image {
     color: grey;
     font-family: 'Franklin Gothic Medium', Arial, sans-serif;
     text-align: left;
-    margin-bottom: 30rpx;
+    margin-top: 20rpx;
+    font-size: 35rpx;
   }
