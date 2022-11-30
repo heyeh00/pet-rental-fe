@@ -13,7 +13,7 @@
     font-weight: bold;
     padding-top: 200rpx;
     padding-left: 50rpx;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   }
   
@@ -22,7 +22,7 @@
     color: white;
     padding-top: 20rpx;
     padding-left: 50rpx;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .btn {
