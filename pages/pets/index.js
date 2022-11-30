@@ -14,7 +14,7 @@ Page({
      */
     onLoad(options) {
       if (getApp().globalData.header) {
-          console.log(getApp().globalData.header);
+          console.log("===ONLOAD===", getApp().globalData.header);
           this.getEvents();
       } else {
           event.on('tokenReady', this, this.getEvents);
@@ -33,7 +33,8 @@ Page({
         url: `${app.getUrl()}pets`,
         header,
         success(res) {
-          page.setData({ events: res.data.events })
+          console.log("REQUEST RES", res.data.pets)
+          page.setData({ user: res.data.pets })
         }
       })
     },
