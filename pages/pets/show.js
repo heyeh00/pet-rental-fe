@@ -1,4 +1,6 @@
 // pages/pets/show.js
+import { getData } from '../../utils/getdata';
+
 Page({
 
     /**
@@ -11,9 +13,22 @@ Page({
     /**
      * Lifecycle function--Called when page load
      */
-    onLoad(options) {
 
-    },
+    onLoad(options) {
+        const page = this
+        console.log(options)
+        const eventChannel = this.getOpenerEventChannel()
+        eventChannel.on('acceptDataFromOpenerPage', function(data) {
+          console.log("RECEIVED", data)
+          page.setData({id: data.id})
+          console.log("SET TO PAGE", page.data.id)
+        }) 
+        const id = page.data.id
+        getData(`/pets/${id}`).then((res) => {
+            this.setData({ pet: res.data.pet})
+            console.log("===ALL PET DATA HERE===", this.data.pet);
+        })
+    }, 
 
     goToReserve() {
 

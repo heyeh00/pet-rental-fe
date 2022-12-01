@@ -13,3 +13,20 @@
     margin: 20rpx;
     border-radius: 50%;
   }
+
+  .info-line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 20rpx;
+  }
+
+  .container {
+      text-align: center;
+      position: relative;
+  }
+
+  .login-btn {
+      position: absolute;
+      top: 1000rpx;
+  }

@@ -9,6 +9,7 @@ Page({
      * Page initial data
      */
     data: {
+        loggedIn: false
     },
 
     /**
@@ -27,10 +28,6 @@ Page({
               canIUseGetUserProfile: true
             })
         }
-        getData(`/users/${app.globalData.user.id}/pets`).then((res) => {
-            console.log("===GET USERS PETS===", res.data.pets);
-            this.setData({ pets: res.data.pets})
-        })
     },
 
     login(e) {
@@ -38,6 +35,8 @@ Page({
         wx.getUserProfile({
             desc: 'desc the user to himself',
             success(res) {
+                that.setData({loggedIn: true})
+
                 console.log("GET USER NAME", res.userInfo.nickName)
                 that.setData({name: res.userInfo.nickName})
                 app.globalData.user.name = that.data.name
@@ -84,7 +83,6 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-
     },
 
     /**

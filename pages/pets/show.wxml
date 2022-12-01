@@ -2,7 +2,7 @@
 
 <view class="card">
     <view style="display: flex; justify-content: center;">
-        <image src="panda.jpg" id="panda" class="panda-pic" />
+        <image src="{{pet.image_url}}" id="panda" class="panda-pic" />
     </view>
     <view class="description" > 
         <view>Henry is a 3-year-old nice Panda guy. He’s easy-going, gentle and full of patience. He loves coding, kung-fu and all sorts of fun activities. Need fresh bamboo and tons of booze every day! </view>

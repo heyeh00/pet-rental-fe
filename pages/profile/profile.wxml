@@ -1,44 +1,31 @@
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
+
+  <view class="ma40 userinfo">
+    <block wx:if="{{loggedIn === true}}">
+      <image src="{{user.image_url}}" class="userinfo-avatar" mode="cover"/>
+      <text>{{user.name}}</text>
     </block>
     <block wx:else>
-      <block wx:if="{{user.image_url}}">
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.image_url}}" mode="cover"></image>
-      </block>
-      <block wx:else>
         <image src="/images/user.png" class="userinfo-avatar" mode="cover"/>
-      </block>
-      <block wx:if="{{user.name === null}}">
-          <text>Somebody needs to login 🤔</text>
-      </block>
-      <block wx:else>
-        <text class="userinfo-nickname">{{user.name}}</text>
-      </block>
+        <button bindtap="login" type="primary" plain="true" class="mb50 login-btn">Login</button>
+        <text>Somebody needs to login 🤔</text>
     </block>
   </view>
-
-  <view class="ma40">
-    <block wx:if="{{user.id}}">
-      <button bindtap="login">Login</button>
-    </block>
-    <block wx:else><button bindtap="login" >Login</button></block>
-  </view>
-
-  <view class="pa40 vh100 bg-dim">
-  <view class="f36 bold mb30 text-center">My pets!</view>
-  <view wx:for="{{pets}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}"
-    class="pa30 radius30 shadow mb30 bg-white">
-    <image src="{{item.image_url}}" mode="aspectFill"
-      class="w100 mb20 radius20" style="height: 250rpx;"></image>
-    <view class="bold f32">
-      {{item.name}}
+  <view wx:if="{{loggedIn === true}}" class="pa40 vh100">
+    <view class="f36 bold mb30 text-center">My pets!</view>
+    <view wx:for="{{pets}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}" class="pa30 radius30 shadow mb30 bg-white">
+        <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        <view class="bold f32">
+            {{item.name}}
+        </view>
+        <view class="info-line">
+            <view class="f28 grey mt20">{{item.animal}}</view>
+            <view class="f28 grey mt20">{{item.breed}}</view>
+            <view class="f28 grey mt20">{{item.gender}}</view>
+        </view>
+        <block wx:if="{{item.personality}}">
+            <view>{{item.personality}}</view>
+        </block>
     </view>
-    <view class="f28 grey mt20">{{item.personality}}</view>
   </view>
-</view>
 </view>
