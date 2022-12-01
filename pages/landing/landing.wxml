@@ -4,5 +4,5 @@
         <view class="header">Great pets.</view>
         <view class="detail">Too many cute pets are waiting for you</view>
     </view>
-    <button class="btn">Get started</button>
+        <button bindtap="goToNextPage" class="btn" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Get started</button>
 </view>

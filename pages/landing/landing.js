@@ -10,7 +10,7 @@ Page({
 
     goToNextPage(e) {
         wx.navigateTo({
-          url: '../index/index',
+          url: '../pets/index',
         })
     },
 

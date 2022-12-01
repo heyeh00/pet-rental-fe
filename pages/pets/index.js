@@ -1,12 +1,22 @@
 // pages/pets/index.js
+const app = getApp();
 import event from '@codesmiths/event';
+import { getData } from '../../utils/getdata';
+
 Page({
 
     /**
      * Page initial data
      */
     data: {
+    },
 
+    goToPetDetail(e) {
+        console.log('goToPetDetail', e)
+        const id =  e.currentTarget.dataset.id
+        wx.navigateTo({
+          url: '/pages/pets/show',
+        })
     },
 
     /**
@@ -15,28 +25,16 @@ Page({
     onLoad(options) {
       if (getApp().globalData.header) {
           console.log("===ONLOAD===", getApp().globalData.header);
-          this.getEvents();
+          this.getPets();
       } else {
-          event.on('tokenReady', this, this.getEvents);
+          event.on('tokenReady', this, this.getPets);
       }
     },
-    getEvents() {
-      const app = getApp();
-      console.log("APP", app)
-      const header = { Authorization: app.getHeader() }
-      console.log("HEADER", header)
-      const page = this;
-      console.log("PAGE", page)
-
-      console.log('header', header);
-      wx.request({
-        url: `${app.getUrl()}/pets`,
-        header,
-        success(res) {
-          console.log("REQUEST RES", res.data)
-          page.setData({ user: res.data.pets })
-        }
-      })
+    getPets() {
+        getData('/pets').then((res) => {
+          console.log(123123, res);
+          this.setData({ user: res.data.pets })
+        })
     },
     /**
      * Lifecycle function--Called when page is initially rendered
@@ -48,8 +46,21 @@ Page({
     /**
      * Lifecycle function--Called when page show
      */
+    
     onShow() {
+      const page = this;
+      wx.request({
+        url: "http://127.0.0.1:3000/api/v1/pets",
+        method: 'GET',
+        success(res) {
+            console.log("pets", res.data.pets)
+          const pets = res.data.pets;
 
+          page.setData ({
+            pets: pets
+          });
+        }
+      })
     },
 
     /**
