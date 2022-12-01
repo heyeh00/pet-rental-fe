@@ -8,9 +8,12 @@
       <open-data type="userNickName"></open-data>
     </block>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.image_url}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{user.name}}</text>
     </block>
   </view>
-  <button bindtap="login" >Login</button>
+
+  <view>
+    <button bindtap="login" >Login</button>
+  </view>
 </view>

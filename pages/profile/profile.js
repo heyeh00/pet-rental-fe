@@ -1,5 +1,6 @@
 // pages/profile/profile.js
 import event from '@codesmiths/event';
+import { getData } from '../../utils/getdata';
 
 const app = getApp();
 
@@ -26,6 +27,8 @@ Page({
               canIUseGetUserProfile: true
             })
         }
+
+
     },
 
     login(e) {
@@ -41,24 +44,18 @@ Page({
                 that.setData({image_url: res.userInfo.avatarUrl})
                 app.globalData.user.image_url = that.data.image_url
 
-                const checkData = {
+                const user = {
                     name: that.data.name,
                     image_url: that.data.image_url,
                 }
-                console.log("===CHECK DATA===", checkData)
 
-                wx.request({
-                  header: app.globalData.header,
-                  url: `http://localhost:3000/api/v1/users/${app.globalData.user.id}`,
-                  method: "POST",
-                  data: {
-                      name: that.data.name,
-                      image_url: that.data.image_url
-                  },
-                  success(res) {
-                      console.log("PLEASE WORK", res)
-                  }
-                })
+                const header = {
+                    'Authorization': app.globalData.header
+                }
+                getData(`/users/${app.globalData.user.id}`, { user }, "PUT").then((res) => {
+                    console.log(123123, res);
+                    that.setData({ user: res.data.user })
+                  })
             },
             fail(errors) {
                 console.log("ERRORS", errors)
@@ -70,8 +67,6 @@ Page({
         this.setData({ user: app.globalData.user })
         this.setData({ user: this.data.user })
         const userId = this.data.user.id;
-        console.log('==USER ID==', userId);
-        console.log('==CODE==', app.globalData.code)
     },
 
     /**
