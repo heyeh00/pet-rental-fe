@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "/mp-stylesheets/index.wxss";
+
 .container {
   height: 100%;
   display: flex;

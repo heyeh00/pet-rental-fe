@@ -2,56 +2,66 @@
 .card {
     position: relative; 
     background-color: rgb(228, 204, 226); 
-    margin: auto
-    height: 200rpx;
-    width: 100%;
+    margin: 40rpx 40rpx;
+    height: 1100rpx;
+    width: 90%;
+    border-radius: 5%;
+    margin-bottom: 140rpx;
   }
-  
-  .pic {
-    height: 300rpx;
-    width: 300rpx;
-    margin: 50rpx;
-    object-fit: cover;
-    object-position: center;
-  }
+
 
   .panda-pic {
       width: 600rpx;
-      height: 600rpx;
-      object-position: center
+      height: 550rpx;
+      object-position: center;
+      padding: 30rpx 20rpx;
+      border-radius: 20%;
+      
   }
   
   .description {
     font-size: 16px;
     font-weight: bold;
-    margin: 100rpx 50rpx;
-    padding: 50rpx 50rpx;
+    padding: 20rpx 50rpx;
+    margin: auto 30rpx;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid rgb(156, 136, 136);
     border-radius: 25rpx;
-    box-shadow: 10 10 0 rgb(109, 129, 129);
+    box-shadow:  2px 2px 5px rgb(109, 129, 129);
   }
   
   .other-info {
-    font-size: 12px;
-    opacity: .7;
+    font-size: 16px;
+    font-family:Comic Sans MS,Gabriola;
+    padding: 50rpx 50rpx;
+    opacity: .8;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   
   .name {
-    /* position: absolute; */
-    /* left: 50%;  */
-    /* transform: translate(-50%, 50%);  */
-    height: 100rpx; 
-    width: 100rpx; 
+    position: absolute; 
+    left: 50%;
+    border: 8rpx solid white;
+    bottom: 0;
+    transform: translate(-50%, 50%); 
+    height: 150rpx; 
+    width: 150rpx; 
     background-color: rgb(116, 69, 79);
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
   }
   
   .button {
       background-color: rgb(196, 154, 154);
-      color: var(--white);
-      text-align:center;
+      font-size: 40rpx;
+      color: white;
+      text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -60,7 +70,13 @@
       padding-bottom: 16rpx;
       padding-left: 40rpx;
       padding-right: 40rpx;
-      border-radius:0rpx;
+      border-radius: 20rpx;
+      height: 60rpx;
+      width: 88rpx;
+      object-position: center;
+      left: 50%;
+      position: relative;
+      transform: translateX(-50%);
     }
 
-    
+    .duration7 { transition: 0.7s; }
