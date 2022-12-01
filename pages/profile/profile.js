@@ -72,6 +72,37 @@ Page({
           })
     },
 
+    delete(e) {
+        console.log("DLT e", e.currentTarget.dataset)
+        const pet_id = e.currentTarget.dataset.pet_id
+        const user_id = app.globalData.user.id
+        const header = { Authorization: app.getHeader() }
+        wx.showModal({
+          cancelText: 'Cancel',
+          confirmText: 'Delete',
+          content: 'Pet will be lost forever!',
+          title: 'Delete pet?😿',
+          complete: (res) => {
+            if (res.cancel) {
+
+            } else if (res.confirm) {
+                console.log("CONFIRM", res) 
+                // getData(`/users/${user_id}/pets/${pet_id}`, "DELETE").then((res) => {
+                //     console.log("DELETED", res.data.pet);
+                // })
+                wx.request({
+                  url: `http://localhost:3000/api/v1/users/${user_id}/pets/${pet_id}`,
+                  method: "DELETE",
+                  header,
+                  success(res) {
+                    console.log("DELETED", res)
+                  }
+                })
+            }  
+          },
+        })
+    },
+
     getUser() {
         this.setData({ user: app.globalData.user })
     },
