@@ -13,13 +13,6 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
-                },
-                {
-                    "name": "Show Page",
-                    "pathName": "pages/pets/show",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
                 }
             ]
         }
