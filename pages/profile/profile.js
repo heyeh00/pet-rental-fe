@@ -80,7 +80,7 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-
+        
     },
 
     /**

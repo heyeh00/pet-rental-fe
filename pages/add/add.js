@@ -1,4 +1,4 @@
-// pages/landing/landing.js
+// pages/add/add.js
 Page({
 
     /**
@@ -6,12 +6,6 @@ Page({
      */
     data: {
 
-    },
-
-    goToNextPage(e) {
-        wx.switchTab({
-          url: '../pets/index',
-        })
     },
 
     /**
@@ -32,7 +26,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+    
     },
 
     /**

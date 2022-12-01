@@ -43,7 +43,13 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-        
+        if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          //uniqueness
+          selected: 0
+        })
+      }
     },
 
     /**

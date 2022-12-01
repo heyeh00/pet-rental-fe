@@ -1,22 +1,21 @@
 <!--pages/pets/index.wxml-->
 <text>{{header}}</text>
-
 <view wx:if="{{pets}}" class="block">
-  <view class="header">Make a new friend:</view>
+  <!-- <view class="header">Make a new friend:</view> -->
   
   <view class="card-container">
-  <view class="card {{ type === 'dog' ? 'active' : ''}}" data-type="dog" bindtap="showAnimal">
-    <image src="/images/dog-o.png" mode="aspectFit"/>
-    <view class="card-name">Dog</view>
-  </view>
-  <view class="card {{ type === 'cat' ? 'active' : ''}}" data-type="cat" bindtap="showAnimal">
-    <image src="/images/cat-o.png" mode="aspectFit"/>
-    <view class="card-name">Cat</view>
-  </view>
-  <view class="card {{ type === 'others' ? 'active' : ''}}" data-type="others" bindtap="showAnimal">
-    <image src="/images/pet.png" mode="aspectFit"/>
-    <view class="card-name">Others</view>
-  </view>
+    <view class="card {{ type === 'dog' ? 'active' : ''}}" data-type="dog" bindtap="showAnimal">
+      <image src="/images/dog-o.png" mode="aspectFit"/>
+      <view class="card-name">Dog</view>
+    </view>
+    <view class="card {{ type === 'cat' ? 'active' : ''}}" data-type="cat" bindtap="showAnimal">
+      <image src="/images/cat-o.png" mode="aspectFit"/>
+      <view class="card-name">Cat</view>
+    </view>
+    <view class="card {{ type === 'others' ? 'active' : ''}}" data-type="others" bindtap="showAnimal">
+      <image src="/images/pet.png" mode="aspectFit"/>
+      <view class="card-name">Others</view>
+    </view>
 </view>
 <view class="result">{{filteredPets.length}} pets found.</view>
 
@@ -31,8 +30,8 @@
 
     <view class="card-product">
         <image src="{{pet.image_url}}" mode="aspectFill"></image>
-        <view class="card-product-infos">
-        <view class="card-infos" style="font-size: 50rpx; color: black;">{{pet.name}}</view>
+          <view class="card-product-infos">
+          <view class="card-infos" style="font-size: 40rpx; color: black;">{{pet.name}}</view>
         <view class="card-infos" style="margin-top: 10rpx;">{{pet.breed}}</view>
 
         <view class="card-small">
@@ -62,6 +61,6 @@
         </view>   
   
         </view>
-    </view>
-  </view>
+          </view>
+        </view>
 </view>
