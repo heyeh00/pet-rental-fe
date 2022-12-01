@@ -13,34 +13,6 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/landing/landing",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/profile/profile",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/profile/profile",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "",
-                    "pathName": "pages/pets/show",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
                 }
             ]
         }
