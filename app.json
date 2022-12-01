@@ -7,6 +7,20 @@
     "pages/pets/create",
     "pages/profile/profile"
   ],
+
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "white",
+    "list": [{
+      "pagePath": "pages/pets/index",
+      "text": "home"
+    }, {
+      "pagePath": "pages/profile/profile",
+      "text": "create"
+    }]
+  },
+
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
