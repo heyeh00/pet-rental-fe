@@ -1,4 +1,3 @@
-
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
@@ -8,12 +7,30 @@
       <open-data type="userNickName"></open-data>
     </block>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.image_url}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{user.name}}</text>
+      <block wx:if="{{user.image_url}}">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.image_url}}" mode="cover"></image>
+      </block>
+      <block wx:else>
+        <image src="/images/user.png" class="userinfo-avatar" mode="cover"/>
+      </block>
+      <block wx:if="{{user.name === null}}">
+          <text>Somebody needs to login 🤔</text>
+      </block>
+      <block wx:else>
+        <text class="userinfo-nickname">{{user.name}}</text>
+      </block>
     </block>
   </view>
 
-  <view>
-    <button bindtap="login" >Login</button>
+  <view class="pets-list">
+      <view>My pets!</view>
+      <view wx:for="{{pets}}">
+          {{item.name}}
+      </view>
   </view>
+
+  <block wx:if="{{user.id}}">
+      <button bindtap="login" >Login</button>
+  </block>
+  <block wx:else><button bindtap="login" >Login</button></block>
 </view>

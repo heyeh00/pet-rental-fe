@@ -27,8 +27,10 @@ Page({
               canIUseGetUserProfile: true
             })
         }
-
-
+        getData(`/users/${app.globalData.user.id}/pets`).then((res) => {
+            console.log("===GET USERS PETS===", res.data.pets);
+            this.setData({ pets: res.data.pets})
+        })
     },
 
     login(e) {
@@ -53,9 +55,13 @@ Page({
                     'Authorization': app.globalData.header
                 }
                 getData(`/users/${app.globalData.user.id}`, { user }, "PUT").then((res) => {
-                    console.log(123123, res);
+                    console.log("===GET USER DATA===", res.data.user);
                     that.setData({ user: res.data.user })
-                  })
+                  }),
+                getData(`/users/${app.globalData.user.id}/pets`).then((res) => {
+                    console.log("===GET USERS PETS===", res.data.pets);
+                    that.setData({ pets: res.data.pets})
+                })
             },
             fail(errors) {
                 console.log("ERRORS", errors)
@@ -65,8 +71,6 @@ Page({
 
     getUser() {
         this.setData({ user: app.globalData.user })
-        this.setData({ user: this.data.user })
-        const userId = this.data.user.id;
     },
 
     /**
