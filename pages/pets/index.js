@@ -19,6 +19,23 @@ Page({
           url: `/pages/pets/show?id=${id}`
         })
     },
+ 
+    showAnimal(e) {
+        const pets = this.data.pets;
+        const filteredType = this.data.type
+        const type = e.currentTarget.dataset.type;
+        //second click will bring back all pets
+        if (type === filteredType) return this.setData({ filteredPets: pets, type: "" });
+        if (type === "dog" || type === "cat") {
+            const filteredPets = pets.filter((pet) => pet.animal.toLowerCase() === type );
+            this.setData({ filteredPets: filteredPets, type })
+            console.log(filteredPets);
+        } else {
+            const filteredPets = pets.filter((pet) => pet.animal.toLowerCase() !== "dog" && pet.animal.toLowerCase() !== "cat")
+            this.setData({ filteredPets: filteredPets, type })
+        }
+        // console.log(e.currentTarget.dataset);
+    },
 
     /**
      * Lifecycle function--Called when page load
@@ -54,11 +71,12 @@ Page({
         url: "http://127.0.0.1:3000/api/v1/pets",
         method: 'GET',
         success(res) {
-            console.log("pets", res.data.pets)
+          console.log("pets", res.data.pets)
           const pets = res.data.pets;
 
           page.setData ({
-            pets: pets
+            pets: pets,
+            filteredPets: pets
           });
         }
       })
