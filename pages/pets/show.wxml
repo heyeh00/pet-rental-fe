@@ -13,7 +13,7 @@
         <view>@Beijing</view>
     </view>
         <view style="display: flex">
-            <view wx:for="{{5}}">*</view>
+            <view wx:for="{{5}}" wx:key="key">*</view>
         </view>
     </view>
 </view>

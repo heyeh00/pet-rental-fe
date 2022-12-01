@@ -15,7 +15,7 @@
 .card-product {
   overflow: hidden;
   height: 240rpx;
-  width: 700rpx;
+  width: 650rpx;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -24,21 +24,26 @@
   border-radius: 30rpx;
 }
 
+.card-info gender{
+    font-size: 20rpx;
+}
+
 image {
-  width: 350rpx;
-  height: 220rpx;
+  width: 400rpx;
+  height: 200rpx;
   object-fit: cover;
-  border-radius: 50%;
-  margin-left: 40rpx;
+  border-radius: 30rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
 }
 
 .card-product-infos {
     font-size: 30rpx;
     color: grey;
-    margin: 0;
+    margin: 0rpx;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     width: 100%;
 }
 
@@ -47,6 +52,7 @@ image {
     justify-content: space-between;
     align-items: center;
     padding-top: 20rpx;
+    margin-right: 50rpx;
 }
 
 .header {
@@ -57,14 +63,12 @@ image {
     font-size: 60rpx;
     font-weight: bold;
     padding: 10rpx;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   .result {
     width: 100%;
     margin-left: 120rpx;
     color: grey;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: left;
     margin-top: 20rpx;
     font-size: 35rpx;

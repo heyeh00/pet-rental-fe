@@ -10,26 +10,26 @@
     wx:for-item="pet"
     class="card-product"
     wx:key="key"
-    data-id="{{ pet.id }}"
+    data-id="{{pet.id}}"
     bindtap="goToPetDetail"
 >
 
     <view class="card-product">
-        <image src="{{pet.image_url}}"></image>
+        <image src="{{pet.image_url}}" mode="aspectFill"></image>
         <view class="card-product-infos">
         <view class="card-infos" style="font-size: 50rpx; color: black;">{{pet.name}}</view>
         <view class="card-infos" style="margin-top: 10rpx;">{{pet.breed}}</view>
 
         <view class="card-small">
             <view class="card-info gender" wx:if="{{pet.gender === 'Male'}}">
-                <view style="background-color: rgba(106, 145, 228, 0.719); color: rgb(14, 67, 212); padding: 10rpx 42rpx; border-radius: 30rpx;">
-                    {{pet.gender}}
+                <view style="background-color: rgba(106, 145, 228, 0.719); color: rgb(14, 67, 212); padding: 10rpx 30rpx; border-radius: 30rpx;">
+                    ♀️
                 </view>
             </view>
 
             <view class="card-info gender" wx:if="{{pet.gender === 'Female'}}">
-                <view style="background-color: rgba(255, 192, 203, 0.781); color: rgb(219, 89, 132); padding: 10rpx 32rpx; border-radius: 30rpx;"> 
-                    {{pet.gender}}
+                <view style="background-color: rgba(255, 192, 203, 0.781); color: rgb(219, 89, 132); padding: 10rpx 30rpx; border-radius: 30rpx;"> 
+                    ♂️
                 </view>
             </view>
      
@@ -40,7 +40,7 @@
             </view>
 
             <view class="card-infos age" wx:if="{{pet.age > 1}}">
-                <view style="background-color: whitesmoke; color: grey; padding: 10rpx 32rpx; border-radius: 30rpx;">
+                <view style="background-color: whitesmoke; color: grey; padding: 10rpx 30rpx; border-radius: 30rpx;">
                     {{pet.age}} Years
                 </view>
             </view>

@@ -1,4 +1,5 @@
 // pages/pets/show.js
+const app = getApp()
 Page({
 
     /**
@@ -12,7 +13,19 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-
+        console.log('Pet show onload options', options)
+        const page = this
+        const id = options.id
+       
+        wx.request ({
+            url: `http://localhost:3000/api/v1/pets/${id}`,
+            success(res) {
+                console.log('Response from wx.request for GET pet', res.data)
+                page.setData({
+                    pet: res.data
+                })
+            }
+        })
     },
 
     goToReserve() {
@@ -30,7 +43,7 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-
+        
     },
 
     /**

@@ -15,8 +15,8 @@ Page({
     goToPetDetail(e) {
         console.log('goToPetDetail', e)
         const id =  e.currentTarget.dataset.id
-        wx.navigateTo({
-          url: '/pages/pets/show',
+        wx.navigateTo ({
+          url: `/pages/pets/show?id=${id}`
         })
     },
 

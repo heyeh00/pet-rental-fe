@@ -7,23 +7,24 @@ App({
 
     wx.login({
       success(res) {
+        //   console.log('test',res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(that.baseUrl)
-        wx.request({
-          url: `${that.getUrl()}/login`,
-          method: "POST",
-          data: { code: res.code },
-          success(loginRes) {
-            // console.log("===LOGIN REQUEST===", loginRes);
-            that.globalData.user = loginRes.data.user;
-            that.globalData.header = loginRes.header['Authorization']
-            // console.log("===HEADER===", that.getHeader());
-            event.emit('tokenReady')
-          },
-          failure(errors) {
-            console.log("===ERROR===", errors);
-          }
-        })
+        // wx.request({
+        //   url: `${that.getUrl()}/login`,
+        //   method: "POST",
+        //   data: { code: res.code },
+        //   success(loginRes) {
+        //     // console.log("===LOGIN REQUEST===", loginRes);
+        //     that.globalData.user = loginRes.data.user;
+        //     that.globalData.header = loginRes.header['Authorization']
+        //     // console.log("===HEADER===", that.getHeader());
+        //     event.emit('tokenReady')
+        //   },
+        //   failure(errors) {
+        //     console.log("===ERROR===", errors);
+        //   }
+        // })
       }
     })
   },

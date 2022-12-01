@@ -10,7 +10,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Pet Rental",
+    "navigationBarTitleText": "Pet a pet",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
