@@ -1,5 +1,4 @@
 <view class="container">
-
   <view class="ma40 userinfo">
     <block wx:if="{{loggedIn === true}}">
       <image src="{{user.image_url}}" class="userinfo-avatar" mode="cover"/>
@@ -12,7 +11,7 @@
     </block>
   </view>
   <view wx:if="{{loggedIn === true}}" class="pa40 vh100">
-    <view class="f36 bold mb30 text-center">My pets!</view>
+    <view class="f36 bold mb10 text-center">My pets!</view>
     <view wx:for="{{pets}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}" class="pa30 radius30 shadow mb30 bg-white">
         <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
         <view class="bold f32">
@@ -21,7 +20,34 @@
         <view class="info-line">
             <view class="f28 grey mt20">{{item.animal}}</view>
             <view class="f28 grey mt20">{{item.breed}}</view>
-            <view class="f28 grey mt20">{{item.gender}}</view>
+            <view wx:if="{{item.gender === 'Male'}}" class="f28 grey mt20">
+                <image id="gender" src="/images/mars-solid.svg" mode=""/>
+            </view>
+            <view wx:else class="f28 grey mt20">
+                <image id="gender" src="/images/venus-solid.svg" mode=""/>
+            </view>
+        </view>
+        <block wx:if="{{item.personality}}">
+            <view>{{item.personality}}</view>
+        </block>
+    </view>
+    <view class="f36 bold mb10 text-center">My Bookings!</view>
+    <view wx:for="{{bookings}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}" class="pa30 radius30 shadow mb30 bg-white">
+        <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        <view class="bold f32">
+            {{item.name}}
+        </view>
+        <view class="info-line">
+            <view class="f28 grey mt20">{{item.animal}}</view>
+            <view class="f28 grey mt20">{{item.breed}}</view>
+            <view class="f28 grey mt20">
+                <block wx:if="{{item.gender === 'Male'}}">
+                    <image id="gender" src="/images/mars-solid.svg" mode=""/>
+                </block>
+                <block wx:else>
+                    <image id="gender" src="/images/venus-solid.svg" mode=""/>
+                </block>
+            </view>
         </view>
         <block wx:if="{{item.personality}}">
             <view>{{item.personality}}</view>

@@ -61,6 +61,10 @@ Page({
                     console.log("===GET USERS PETS===", res.data.pets);
                     that.setData({ pets: res.data.pets})
                 })
+                getData(`/users/${app.globalData.user.id}/bookings`).then((res) => {
+                    console.log("===GET USER RENTED PETS===", res.data.pets);
+                    that.setData({ bookings: res.data.pets})
+                })
             },
             fail(errors) {
                 console.log("ERRORS", errors)

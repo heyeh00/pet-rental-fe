@@ -13,11 +13,20 @@
     "selectedColor": "#000000",
     "backgroundColor": "white",
     "list": [{
+      "pagePath": "pages/pets/index",
+      "text": "pet",
+      "iconPath": "/images/home_white.png",
+      "selectedIconPath": "/images/home_black.png"
+    }, {
       "pagePath": "pages/pets/create",
-      "text": "create"
+      "text": "create",
+      "iconPath": "/images/add_white.png",
+      "selectedIconPath": "/images/add_black.png"
     }, {
       "pagePath": "pages/profile/profile",
-      "text": "profile"
+      "text": "profile",
+      "iconPath": "/images/profile_white.png",
+      "selectedIconPath": "/images/profile_black.png"
     }]
   },
 

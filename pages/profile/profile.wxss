@@ -30,3 +30,8 @@
       position: absolute;
       top: 1000rpx;
   }
+
+  #gender {
+      width: 20px;
+      height: 20px;
+  }

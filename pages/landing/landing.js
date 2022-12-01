@@ -9,8 +9,8 @@ Page({
     },
 
     goToNextPage(e) {
-        wx.navigateTo({
-          url: '../pets/index',
+        wx.switchTab({
+            url: '../pets/index',
         })
     },
 
