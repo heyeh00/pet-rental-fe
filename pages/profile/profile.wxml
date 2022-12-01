@@ -22,15 +22,23 @@
     </block>
   </view>
 
-  <view class="pets-list">
-      <view>My pets!</view>
-      <view wx:for="{{pets}}">
-          {{item.name}}
-      </view>
+  <view class="ma40">
+    <block wx:if="{{user.id}}">
+      <button bindtap="login">Login</button>
+    </block>
+    <block wx:else><button bindtap="login" >Login</button></block>
   </view>
 
-  <block wx:if="{{user.id}}">
-      <button bindtap="login" >Login</button>
-  </block>
-  <block wx:else><button bindtap="login" >Login</button></block>
+  <view class="pa40 vh100 bg-dim">
+  <view class="f36 bold mb30 text-center">My pets!</view>
+  <view wx:for="{{pets}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}"
+    class="pa30 radius30 shadow mb30 bg-white">
+    <image src="{{item.image_url}}" mode="aspectFill"
+      class="w100 mb20 radius20" style="height: 250rpx;"></image>
+    <view class="bold f32">
+      {{item.name}}
+    </view>
+    <view class="f28 grey mt20">{{item.personality}}</view>
+  </view>
+</view>
 </view>
