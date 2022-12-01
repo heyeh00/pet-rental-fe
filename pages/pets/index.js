@@ -9,7 +9,6 @@ Page({
      * Page initial data
      */
     data: {
-
     },
 
     goToPetDetail(e) {
@@ -32,7 +31,7 @@ Page({
       }
     },
     getPets() {
-        getData('/pets', this).then((res) => {
+        getData('/pets').then((res) => {
           console.log(123123, res);
           this.setData({ user: res.data.pets })
         })
