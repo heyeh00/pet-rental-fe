@@ -16,8 +16,8 @@
                 },
                 {
                     "name": "",
-                    "pathName": "pages/pets/show",
-                    "query": "3",
+                    "pathName": "pages/pets/index",
+                    "query": "",
                     "launchMode": "default",
                     "scene": null
                 }

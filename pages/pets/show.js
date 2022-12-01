@@ -1,5 +1,6 @@
 // pages/pets/show.js
 import { getData } from '../../utils/getdata';
+const app = getApp()
 
 Page({
 
@@ -84,6 +85,7 @@ Page({
     },
 
     showModal() {
+        const page = this
         wx.showModal({
           title: 'Please kindly confirm.',
           content: 'Are you sure to book this cutie?',
@@ -93,7 +95,14 @@ Page({
             }
         
             if (res.confirm) {
-              console.log('The user made the reservation.');
+              console.log("CONFIRM PET ID", page.data.pet.id)
+              const pet_id = page.data.pet.id
+              console.log("CONFIRM USER ID", app.globalData.user.id)
+              const user_id = app.globalData.user.id
+              const booking = { pet_id: pet_id, user_id: user_id }
+              getData(`/users/:user_id/bookings`, { booking }, "POST").then((res) => {
+                console.log("===SUCCESS===", res);
+            })
             }
           }
         })
