@@ -9,16 +9,14 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/pets/index",
+                    "pathName": "pages/profile/profile",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
                 },
                 {
                     "name": "",
-
-                    "pathName": "pages/profile/profile",
-
+                    "pathName": "pages/pets/index",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

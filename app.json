@@ -13,11 +13,11 @@
     "selectedColor": "#000000",
     "backgroundColor": "white",
     "list": [{
-      "pagePath": "pages/pets/index",
-      "text": "home"
+      "pagePath": "pages/pets/create",
+      "text": "create"
     }, {
       "pagePath": "pages/profile/profile",
-      "text": "create"
+      "text": "profile"
     }]
   },
 
