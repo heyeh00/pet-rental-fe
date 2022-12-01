@@ -66,5 +66,21 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    showModal() {
+        wx.showModal({
+          title: 'Please kindly confirm.',
+          content: 'Are you sure to book this cutie?',
+          complete: (res) => {
+            if (res.cancel) {
+              console.log('The user has not made the reservation.');
+            }
+        
+            if (res.confirm) {
+              console.log('The user made the reservation.');
+            }
+          }
+        })
     }
 })
