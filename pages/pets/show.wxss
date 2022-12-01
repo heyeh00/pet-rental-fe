@@ -1,8 +1,9 @@
 /* pages/pets/show.wxss */
 .card {
     position: relative; 
-    background-color: rgb(109, 129, 129); 
-    height: 800rpx;
+    background-color: rgb(228, 204, 226); 
+    margin: 2rpx
+    height: 200rpx;
     width: 100%;
   }
   
