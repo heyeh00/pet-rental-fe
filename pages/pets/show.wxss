@@ -2,7 +2,7 @@
 .card {
     position: relative; 
     background-color: rgb(228, 204, 226); 
-    margin: 2rpx
+    margin: auto
     height: 200rpx;
     width: 100%;
   }
@@ -50,6 +50,17 @@
   
   .button {
       background-color: rgb(196, 154, 154);
+      color: var(--white);
+      text-align:center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 16rpx;
+      padding-bottom: 16rpx;
+      padding-left: 40rpx;
+      padding-right: 40rpx;
+      border-radius:0rpx;
     }
 
-  
+    

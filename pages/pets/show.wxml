@@ -9,8 +9,8 @@
     </view> 
     <view class="other-info">
     <view>
-        <view>￥10000/Day</view>
-        <view>@Beijing</view>
+        <view class="price">￥10000/Day</view>
+        <view class="location">@Beijing</view>
     </view>
         <view style="display: flex">
             <view wx:for="{{5}}">*</view>
