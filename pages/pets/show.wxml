@@ -1,8 +1,12 @@
 <!--pages/pets/show.wxml-->
-
 <view class="card">
     <view style="display: flex; justify-content: center;">
-        <image src="{{pet.image_url}}" id="panda" class="panda-pic" />
+        <view wx:if="{{pet.image_url}}">
+            <image src="{{pet.image_url}}" id="panda" class="panda-pic" />
+        </view>
+        <view wx:else>
+            <image src="/images/panda.jpg" id="panda" class="panda-pic" />
+        </view>
     </view>
     <view class="description" > 
         <view>Henry is a 3-year-old nice Panda guy. He’s easy-going, gentle and full of patience. He loves coding, kung-fu and all sorts of fun activities. Need fresh bamboo and tons of booze every day! </view>
@@ -17,7 +21,7 @@
         </view>
     </view>
     <view class="name">
-        <view>Henry</view>
+        <view class="white">{{pet.name}}</view>
     </view> 
 </view>
 

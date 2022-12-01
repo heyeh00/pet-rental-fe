@@ -1,1 +1,23 @@
 /* pages/pets/create.wxss */
+
+.input{
+    border: 1rpx solid black;
+    /* width: 100%; */
+    padding: 20rpx 20rpx;
+    width: auto;
+  }
+  
+  .container-form {
+    box-sizing: content-box;
+    padding: 100rpx 60rpx;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    font-size: 44rpx;
+    margin-bottom: 30rpx;
+  }
+
+  .btn-area {
+    display: flex;
+  }
