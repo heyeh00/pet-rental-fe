@@ -11,8 +11,8 @@
     </block>
   </view>
   <view wx:if="{{loggedIn === true}}" class="pa40 vh100">
-    <view class="f36 bold mb10 text-center">My pets!</view>
-    <view wx:for="{{pets}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}" class="pa30 radius30 shadow mb30 bg-white">
+    <view class="f36 bold mb10 text-center" id="title">My pets!</view>
+    <view wx:for="{{pets}}" wx:key="index" data-id="{{ item.id }}" bindtap="goToPetDetail" class="pa30 radius30 shadow mb30 bg-white">
         <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
         <view class="bold f32">
             {{item.name}}
@@ -27,12 +27,16 @@
                 <image id="gender" src="/images/venus-solid.svg" mode=""/>
             </view>
         </view>
+        <view class="buttons">
+            <button class="mini-btn" type="default" size="mini" id="button-left">Edit</button>
+            <button class="mini-btn" type="warn" size="mini" id="button-right" bindtap="delete" data-pet_id="{{item.id}}">Delete</button>
+        </view>
         <block wx:if="{{item.personality}}">
             <view>{{item.personality}}</view>
         </block>
     </view>
-    <view class="f36 bold mb10 text-center">My Bookings!</view>
-    <view wx:for="{{bookings}}" wx:key="index" bindtap="goToShow" data-id="{{item.id}}" class="pa30 radius30 shadow mb30 bg-white">
+    <view class="f36 bold mb10 text-center" id="title">My Bookings!</view>
+    <view wx:for="{{bookings}}" wx:key="index" class="pa30 radius30 shadow mb30 bg-white">
         <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
         <view class="bold f32">
             {{item.name}}
@@ -50,7 +54,7 @@
             </view>
         </view>
         <block wx:if="{{item.personality}}">
-            <view>{{item.personality}}</view>
+            <view class="f28 grey mt20">{{item.personality}}</view>
         </block>
     </view>
   </view>

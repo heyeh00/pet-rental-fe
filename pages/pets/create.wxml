@@ -1,2 +1,32 @@
-<!--pages/pets/create.wxml-->
-<text>pages/pets/create.wxml</text>
+<view class="container-form">
+<view class="header">Submit a Pet:</view>
+  <form bindsubmit="submitRestaurant">
+    <label for="title">Name:</label>
+    <input class="input" style="margin-bottom: 30rpx;" type="text" id="name" name="name" value="{{formName}}"/>
+
+    <label for="personality">Personality:</label>
+    <textarea name="personality" class="input" id="personality" value="{{formPersonality}}"/>
+
+    <label for="animal">Animal</label>
+    <input name="animal" class="input" id="animal" value="{{formAnimal}}"/>
+
+    <label for="breed">Breed</label>
+    <input name="breed" class="input" id="breed" value="{{formBreed}}"/>
+
+    <label for="age">Age</label>
+    <input name="age" class="input" id="age" value="{{formAge}}"/>
+
+    <label for="gender">Gender</label>
+    <input name="gender" class="input" id="gender" value="{{formGender}}"/>
+
+    <label for="address">Address</label>
+    <input name="address" class="input" id="address" value="{{formAddress}}"/>
+
+    <!-- <label for="image">Upload Picture</label>
+    <input type="file" id="image" name="image"> -->
+    <view class="btn-area">
+        <button style="margin: 30rpx 0" formType="reset">Reset</button>
+        <button style="margin: 30rpx 0" type="primary" formType="submit">Submit</button>
+    </view>
+  </form>
+</view>

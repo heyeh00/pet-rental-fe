@@ -34,6 +34,10 @@ App({
     return this.globalData.header;
   },
 
+  getUserId() {
+    return this.globalData.user.id
+  },
+
   globalData: {
     baseUrl: 'http://localhost:3000/api/v1'
     
