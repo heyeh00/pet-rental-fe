@@ -1,4 +1,4 @@
-function getData(path) {
+function getData(path, data = {}, method = "GET") {
     const app = getApp();
     const url = `${app.getUrl()}${path}`
     const header = { Authorization: app.getHeader() }
@@ -8,6 +8,8 @@ function getData(path) {
         wx.request({
             url,
             header,
+            data, 
+            method,
             success(reqRes) {
                 resolve(reqRes)
             }
