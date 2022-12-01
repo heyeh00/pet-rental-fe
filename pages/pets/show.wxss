@@ -1,1 +1,54 @@
 /* pages/pets/show.wxss */
+.card {
+    position: relative; 
+    background-color: rgb(109, 129, 129); 
+    height: 800rpx;
+    width: 100%;
+  }
+  
+  .pic {
+    height: 300rpx;
+    width: 300rpx;
+    margin: 50rpx;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .panda-pic {
+      width: 600rpx;
+      height: 600rpx;
+      object-position: center
+  }
+  
+  .description {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 100rpx 50rpx;
+    padding: 50rpx 50rpx;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25rpx;
+    box-shadow: 10 10 0 rgb(109, 129, 129);
+  }
+  
+  .other-info {
+    font-size: 12px;
+    opacity: .7;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .name {
+    /* position: absolute; */
+    /* left: 50%;  */
+    /* transform: translate(-50%, 50%);  */
+    height: 100rpx; 
+    width: 100rpx; 
+    background-color: rgb(116, 69, 79);
+  }
+  
+  .button {
+      background-color: rgb(196, 154, 154);
+    }
+
+  
