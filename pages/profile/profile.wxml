@@ -13,7 +13,12 @@
   <view wx:if="{{loggedIn === true}}" class="pa40 vh100">
     <view class="f36 bold mb10 text-center" id="title">My pets!</view>
     <view wx:for="{{pets}}" wx:key="index" data-id="{{ item.id }}" bindtap="goToPetDetail" class="pa30 radius30 shadow mb30 bg-white">
-        <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        <block wx:if="{{item.image_url == null}}">
+            <image src="/images/panda.jpg" mode="aspectFill"/>
+        </block>
+        <block wx:else>
+            <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        </block>
         <view class="bold f32">
             {{item.name}}
         </view>
@@ -37,7 +42,12 @@
     </view>
     <view class="f36 bold mb10 text-center" id="title">My Bookings!</view>
     <view wx:for="{{bookings}}" wx:key="index" class="pa30 radius30 shadow mb30 bg-white">
-        <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        <block wx:if="{{item.image_url == null}}">
+            <image src="/images/panda.jpg" mode="aspectFill"/>
+        </block>
+        <block wx:else>
+            <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        </block>
         <view class="bold f32">
             {{item.name}}
         </view>
