@@ -6,8 +6,7 @@
     "pages/pets/show",
     "pages/pets/create",
     "pages/profile/profile",
-    "pages/add/add",
-    "custom-tab-bar/index"
+    "pages/add/add"
   ],
 
   "tabBar": {
