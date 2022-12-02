@@ -1,19 +1,71 @@
-
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
+  <view class="ma40 userinfo">
+    <block wx:if="{{loggedIn === true}}">
+      <image src="{{user.image_url}}" class="userinfo-avatar" mode="cover"/>
+      <text>{{user.name}}</text>
     </block>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{user.image_url}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{user.name}}</text>
+        <image src="/images/user.png" class="userinfo-avatar" mode="cover"/>
+        <button bindtap="login" type="primary" plain="true" class="mb50 login-btn">Login</button>
+        <text>Somebody needs to login 🤔</text>
     </block>
   </view>
-
-  <view>
-    <button bindtap="login" >Login</button>
+  <view wx:if="{{loggedIn === true}}" class="pa40 vh100">
+    <view class="f36 bold mb10 text-center" id="title">My pets!</view>
+    <view wx:for="{{pets}}" wx:key="index" data-id="{{ item.id }}" bindtap="goToPetDetail" class="pa30 radius30 shadow mb30 bg-white">
+        <block wx:if="{{item.image_url == null}}">
+            <image src="/images/panda.jpg" mode="aspectFill"/>
+        </block>
+        <block wx:else>
+            <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        </block>
+        <view class="bold f32">
+            {{item.name}}
+        </view>
+        <view class="info-line">
+            <view class="f28 grey mt20">{{item.animal}}</view>
+            <view class="f28 grey mt20">{{item.breed}}</view>
+            <view wx:if="{{item.gender === 'Male'}}" class="f28 grey mt20">
+                <image id="gender" src="/images/mars-solid.svg" mode=""/>
+            </view>
+            <view wx:else class="f28 grey mt20">
+                <image id="gender" src="/images/venus-solid.svg" mode=""/>
+            </view>
+        </view>
+        <view class="buttons">
+            <button class="mini-btn" type="default" size="mini" id="button-left">Edit</button>
+            <button class="mini-btn" type="warn" size="mini" id="button-right" bindtap="delete" data-pet_id="{{item.id}}">Delete</button>
+        </view>
+        <block wx:if="{{item.personality}}">
+            <view>{{item.personality}}</view>
+        </block>
+    </view>
+    <view class="f36 bold mb10 text-center" id="title">My Bookings!</view>
+    <view wx:for="{{bookings}}" wx:key="index" class="pa30 radius30 shadow mb30 bg-white">
+        <block wx:if="{{item.image_url == null}}">
+            <image src="/images/panda.jpg" mode="aspectFill"/>
+        </block>
+        <block wx:else>
+            <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
+        </block>
+        <view class="bold f32">
+            {{item.name}}
+        </view>
+        <view class="info-line">
+            <view class="f28 grey mt20">{{item.animal}}</view>
+            <view class="f28 grey mt20">{{item.breed}}</view>
+            <view class="f28 grey mt20">
+                <block wx:if="{{item.gender === 'Male'}}">
+                    <image id="gender" src="/images/mars-solid.svg" mode=""/>
+                </block>
+                <block wx:else>
+                    <image id="gender" src="/images/venus-solid.svg" mode=""/>
+                </block>
+            </view>
+        </view>
+        <block wx:if="{{item.personality}}">
+            <view class="f28 grey mt20">{{item.personality}}</view>
+        </block>
+    </view>
   </view>
 </view>

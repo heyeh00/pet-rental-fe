@@ -1,5 +1,7 @@
 // pages/pets/show.js
+import { getData } from '../../utils/getdata';
 const app = getApp()
+
 Page({
 
     /**
@@ -13,20 +15,20 @@ Page({
      * Lifecycle function--Called when page load
      */
     onLoad(options) {
-        console.log('Pet show onload options', options)
         const page = this
-        const id = options.id
-       
-        wx.request ({
-            url: `http://localhost:3000/api/v1/pets/${id}`,
-            success(res) {
-                console.log('Response from wx.request for GET pet', res.data)
-                page.setData({
-                    pet: res.data
-                })
-            }
+        console.log(options)
+        const eventChannel = this.getOpenerEventChannel()
+        eventChannel.on('acceptDataFromOpenerPage', function(data) {
+          console.log("RECEIVED", data)
+          page.setData({id: data.id})
+          console.log("SET TO PAGE", page.data.id)
+        }) 
+        const id = page.data.id
+        getData(`/pets/${id}`).then((res) => {
+            this.setData({ pet: res.data.pet})
+            console.log("===ALL PET DATA HERE===", this.data.pet);
         })
-    },
+    }, 
 
     goToReserve() {
 
@@ -85,5 +87,29 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    showModal() {
+        const page = this
+        wx.showModal({
+          title: 'Please kindly confirm.',
+          content: 'Are you sure to book this cutie?',
+          complete: (res) => {
+            if (res.cancel) {
+              console.log('The user has not made the reservation.');
+            }
+        
+            if (res.confirm) {
+              console.log("CONFIRM PET ID", page.data.pet.id)
+              const pet_id = page.data.pet.id
+              console.log("CONFIRM USER ID", app.globalData.user.id)
+              const user_id = app.globalData.user.id
+              const booking = { pet_id: pet_id, user_id: user_id }
+              getData(`/users/:user_id/bookings`, { booking }, "POST").then((res) => {
+                console.log("===SUCCESS===", res);
+            })
+            }
+          }
+        })
     }
 })

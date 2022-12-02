@@ -11,12 +11,16 @@ Page({
     data: {
     },
 
-    goToPetDetail(e) {
+    goToPetDetail(e) {  
         console.log('goToPetDetail', e)
         const id =  e.currentTarget.dataset.id
-        wx.navigateTo ({
-          url: `/pages/pets/show?id=${id}`
-        })
+        console.log("PREPARE PUSH", id) 
+        wx.navigateTo({ 
+          url: '/pages/pets/show',  
+          success: function(res) {
+            res.eventChannel.emit('acceptDataFromOpenerPage', { id }) 
+          }
+        }) 
     },
  
     showAnimal(e) {
@@ -66,9 +70,14 @@ Page({
     
     onShow() {
       const page = this;
+      const header = {
+        'Authorization': app.globalData.header
+      }
       wx.request({
-        url: "http://127.0.0.1:3000/api/v1/pets",
-        method: 'GET',
+        // url: "http://127.0.0.1:3000/api/v1/pets", 
+        url: "http://localhost:3000/api/v1/pets",
+        method: 'GET', 
+        header,
         success(res) {
           console.log("pets", res.data.pets)
           const pets = res.data.pets;
@@ -77,6 +86,9 @@ Page({
             pets: pets,
             filteredPets: pets
           });
+        },
+        fail(errors) {
+            console.log("ERRORS", errors)
         }
       })
     },

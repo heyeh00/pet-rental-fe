@@ -9,6 +9,7 @@ Page({
      * Page initial data
      */
     data: {
+        loggedIn: false
     },
 
     /**
@@ -27,8 +28,6 @@ Page({
               canIUseGetUserProfile: true
             })
         }
-
-
     },
 
     login(e) {
@@ -36,6 +35,8 @@ Page({
         wx.getUserProfile({
             desc: 'desc the user to himself',
             success(res) {
+                that.setData({loggedIn: true})
+
                 console.log("GET USER NAME", res.userInfo.nickName)
                 that.setData({name: res.userInfo.nickName})
                 app.globalData.user.name = that.data.name
@@ -53,9 +54,17 @@ Page({
                     'Authorization': app.globalData.header
                 }
                 getData(`/users/${app.globalData.user.id}`, { user }, "PUT").then((res) => {
-                    console.log(123123, res);
+                    console.log("===GET USER DATA===", res.data.user);
                     that.setData({ user: res.data.user })
-                  })
+                  }),
+                getData(`/users/${app.globalData.user.id}/pets`).then((res) => {
+                    console.log("===GET USERS PETS===", res.data.pets);
+                    that.setData({ pets: res.data.pets})
+                })
+                getData(`/users/${app.globalData.user.id}/bookings`).then((res) => {
+                    console.log("===GET USER RENTED PETS===", res.data.pets);
+                    that.setData({ bookings: res.data.pets})
+                })
             },
             fail(errors) {
                 console.log("ERRORS", errors)
@@ -63,10 +72,39 @@ Page({
           })
     },
 
+    delete(e) {
+        console.log("DLT e", e.currentTarget.dataset)
+        const pet_id = e.currentTarget.dataset.pet_id
+        const user_id = app.globalData.user.id
+        const header = { Authorization: app.getHeader() }
+        wx.showModal({
+          cancelText: 'Cancel',
+          confirmText: 'Delete',
+          content: 'Pet will be lost forever!',
+          title: 'Delete pet?😿',
+          complete: (res) => {
+            if (res.cancel) {
+
+            } else if (res.confirm) {
+                console.log("CONFIRM", res) 
+                // getData(`/users/${user_id}/pets/${pet_id}`, "DELETE").then((res) => {
+                //     console.log("DELETED", res.data.pet);
+                // })
+                wx.request({
+                  url: `http://localhost:3000/api/v1/users/${user_id}/pets/${pet_id}`,
+                  method: "DELETE",
+                  header,
+                  success(res) {
+                    console.log("DELETED", res)
+                  }
+                })
+            }  
+          },
+        })
+    },
+
     getUser() {
         this.setData({ user: app.globalData.user })
-        this.setData({ user: this.data.user })
-        const userId = this.data.user.id;
     },
 
     /**
@@ -80,7 +118,6 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-        
     },
 
     /**

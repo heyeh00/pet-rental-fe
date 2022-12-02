@@ -3,17 +3,46 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #aaa;
+    color: rgb(85, 85, 85);
   }
   
   .userinfo-avatar {
     overflow: hidden;
-    width: 128rpx;
-    height: 128rpx;
+    width: 240rpx;
+    height: 240rpx;
     margin: 20rpx;
     border-radius: 50%;
   }
-  
-  .usermotto {
-    margin-top: 200px;
+
+  .info-line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 20rpx;
+  }
+
+  .container {
+      text-align: center;
+      position: relative;
+  }
+
+  .login-btn {
+      position: absolute;
+      top: 1000rpx;
+  }
+
+  #gender {
+      width: 20px;
+      height: 20px;
+  }
+
+  #title {
+      color: blueviolet;
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 30rpx;
   }
