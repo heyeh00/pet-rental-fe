@@ -1,0 +1,22 @@
+"tabBar": {   
+      "list": [
+          {
+          "pagePath": "pages/add/add",
+          "text": "add",
+          "iconPath": "icons/round_add.png",
+          "selectedIconPath": "icons/round_add-o.png"
+      },
+      {
+        "pagePath": "pages/pets/index",
+        "text": "home",
+        "iconPath": "icons/pet.png",
+        "selectedIconPath": "icons/pet-o.png"
+    },
+    {
+        "pagePath": "pages/profile/profile",
+        "text": "profile",
+        "iconPath": "icons/profile.png",
+        "selectedIconPath": "icons/profile-o.png"
+    }
+    ]
+  },

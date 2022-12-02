@@ -33,8 +33,8 @@
             </view>
         </view>
         <view class="buttons">
-            <button class="mini-btn" type="default" size="mini" id="button-left">Edit</button>
-            <button class="mini-btn" type="warn" size="mini" id="button-right" bindtap="delete" data-pet_id="{{item.id}}">Delete</button>
+            <button class="mini-btn" style="margin: 0;" type="default" size="mini" id="button-left">Edit</button>
+            <button class="mini-btn" style="margin: 0;" type="warn" size="mini" id="button-right" bindtap="delete" data-pet_id="{{item.id}}">Delete</button>
         </view>
         <block wx:if="{{item.personality}}">
             <view>{{item.personality}}</view>
