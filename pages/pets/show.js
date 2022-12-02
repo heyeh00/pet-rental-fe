@@ -14,7 +14,6 @@ Page({
     /**
      * Lifecycle function--Called when page load
      */
-
     onLoad(options) {
         const page = this
         console.log(options)
@@ -46,7 +45,13 @@ Page({
      * Lifecycle function--Called when page show
      */
     onShow() {
-
+        if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          //uniqueness
+          selected: 0
+        })
+      }
     },
 
     /**

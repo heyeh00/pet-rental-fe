@@ -7,6 +7,7 @@ App({
 
     wx.login({
       success(res) {
+        //   console.log('test',res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         that.globalData.code = res.code;
         wx.request({

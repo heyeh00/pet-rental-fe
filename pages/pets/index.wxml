@@ -1,35 +1,49 @@
 <!--pages/pets/index.wxml-->
 <text>{{header}}</text>
-
 <view wx:if="{{pets}}" class="block">
-  <view class="header">Make a new friend:</view>
-  <view class="result">{{pets.length}} pets found.</view>
+  <!-- <view class="header">Make a new friend:</view> -->
+  
+  <view class="card-container">
+    <view class="card {{ type === 'dog' ? 'active' : ''}}" data-type="dog" bindtap="showAnimal">
+      <image src="/images/dog-o.png" mode="aspectFit"/>
+      <view class="card-name">Dog</view>
+    </view>
+    <view class="card {{ type === 'cat' ? 'active' : ''}}" data-type="cat" bindtap="showAnimal">
+      <image src="/images/cat-o.png" mode="aspectFit"/>
+      <view class="card-name">Cat</view>
+    </view>
+    <view class="card {{ type === 'others' ? 'active' : ''}}" data-type="others" bindtap="showAnimal">
+      <image src="/images/pet.png" mode="aspectFit"/>
+      <view class="card-name">Others</view>
+    </view>
+</view>
+<view class="result">{{filteredPets.length}} pets found.</view>
 
   <view
-    wx:for="{{pets}}"
+    wx:for="{{filteredPets}}"
     wx:for-item="pet"
     class="card-product"
     wx:key="key"
-    data-id="{{ pet.id }}"
+    data-id="{{pet.id}}"
     bindtap="goToPetDetail"
 >
 
     <view class="card-product">
-        <image src="{{pet.image_url}}"></image>
-        <view class="card-product-infos">
-        <view class="card-infos" style="font-size: 50rpx; color: black;">{{pet.name}}</view>
+        <image src="{{pet.image_url}}" mode="aspectFill"></image>
+          <view class="card-product-infos">
+          <view class="card-infos" style="font-size: 40rpx; color: black;">{{pet.name}}</view>
         <view class="card-infos" style="margin-top: 10rpx;">{{pet.breed}}</view>
 
         <view class="card-small">
             <view class="card-info gender" wx:if="{{pet.gender === 'Male'}}">
-                <view style="background-color: rgba(106, 145, 228, 0.719); color: rgb(14, 67, 212); padding: 10rpx 42rpx; border-radius: 30rpx;">
-                    {{pet.gender}}
+                <view style="background-color: rgba(106, 145, 228, 0.719); color: rgb(14, 67, 212); padding: 10rpx 30rpx; border-radius: 30rpx;">
+                    ♀️
                 </view>
             </view>
 
             <view class="card-info gender" wx:if="{{pet.gender === 'Female'}}">
-                <view style="background-color: rgba(255, 192, 203, 0.781); color: rgb(219, 89, 132); padding: 10rpx 32rpx; border-radius: 30rpx;"> 
-                    {{pet.gender}}
+                <view style="background-color: rgba(255, 192, 203, 0.781); color: rgb(219, 89, 132); padding: 10rpx 30rpx; border-radius: 30rpx;"> 
+                    ♂️
                 </view>
             </view>
      
@@ -40,13 +54,13 @@
             </view>
 
             <view class="card-infos age" wx:if="{{pet.age > 1}}">
-                <view style="background-color: whitesmoke; color: grey; padding: 10rpx 32rpx; border-radius: 30rpx;">
+                <view style="background-color: whitesmoke; color: grey; padding: 10rpx 30rpx; border-radius: 30rpx;">
                     {{pet.age}} Years
                 </view>
             </view>
         </view>   
   
         </view>
-    </view>
-  </view>
+          </view>
+        </view>
 </view>

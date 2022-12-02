@@ -22,6 +22,23 @@ Page({
           }
         }) 
     },
+ 
+    showAnimal(e) {
+        const pets = this.data.pets;
+        const filteredType = this.data.type
+        const type = e.currentTarget.dataset.type;
+        //second click will bring back all pets
+        if (type === filteredType) return this.setData({ filteredPets: pets, type: "" });
+        if (type === "dog" || type === "cat") {
+            const filteredPets = pets.filter((pet) => pet.animal.toLowerCase() === type );
+            this.setData({ filteredPets: filteredPets, type })
+            console.log(filteredPets);
+        } else {
+            const filteredPets = pets.filter((pet) => pet.animal.toLowerCase() !== "dog" && pet.animal.toLowerCase() !== "cat")
+            this.setData({ filteredPets: filteredPets, type })
+        }
+        // console.log(e.currentTarget.dataset);
+    },
 
     /**
      * Lifecycle function--Called when page load
@@ -66,7 +83,8 @@ Page({
           const pets = res.data.pets;
 
           page.setData ({
-            pets: pets
+            pets: pets,
+            filteredPets: pets
           });
         },
         fail(errors) {

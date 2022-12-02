@@ -12,12 +12,12 @@
         <view>Henry is a 3-year-old nice Panda guy. He’s easy-going, gentle and full of patience. He loves coding, kung-fu and all sorts of fun activities. Need fresh bamboo and tons of booze every day! </view>
     </view> 
     <view class="other-info">
-        <view>
-            <view class="price">￥10000/Day</view>
-            <view class="location">@Beijing</view>
-        </view>
-        <view class = "stars" style="display: flex">
-            <view wx:for="{{5}}">*</view>
+    <view>
+        <view class="price">￥10000/Day</view>
+        <view class="location">@Beijing</view>
+    </view>
+    <view class = "stars" style="display: flex">
+        <view wx:for="{{5}}">*</view>
         </view>
     </view>
     <view class="name">
