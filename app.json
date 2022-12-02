@@ -17,8 +17,8 @@
     "list": [{
       "pagePath": "pages/pets/index",
       "text": "pet",
-      "iconPath": "/images/home_white.png",
-      "selectedIconPath": "/images/home_black.png"
+      "iconPath": "/icons/pet.png",
+      "selectedIconPath": "/icons/pet-o.png"
     }, {
       "pagePath": "pages/pets/create",
       "text": "create",
@@ -38,28 +38,7 @@
     "navigationBarTitleText": "Pet a pet",
     "navigationBarTextStyle":"black"
   },
-  "tabBar": {   
-      "list": [
-          {
-          "pagePath": "pages/add/add",
-          "text": "add",
-          "iconPath": "icons/round_add.png",
-          "selectedIconPath": "icons/round_add-o.png"
-      },
-      {
-        "pagePath": "pages/pets/index",
-        "text": "home",
-        "iconPath": "icons/pet.png",
-        "selectedIconPath": "icons/pet-o.png"
-    },
-    {
-        "pagePath": "pages/profile/profile",
-        "text": "profile",
-        "iconPath": "icons/profile.png",
-        "selectedIconPath": "icons/profile-o.png"
-    }
-    ]
-  },
+  
   "usingComponents": {},
   "style": "v2",
   "sitemapLocation": "sitemap.json"
