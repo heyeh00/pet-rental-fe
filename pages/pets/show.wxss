@@ -2,6 +2,7 @@
 .card {
     position: relative; 
     background-color: rgb(228, 204, 226); 
+    background-size: cover;
     margin: 40rpx 40rpx;
     height: 1100rpx;
     width: 90%;
