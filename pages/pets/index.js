@@ -74,8 +74,8 @@ Page({
         'Authorization': app.globalData.header
       }
       wx.request({
-        // url: "http://127.0.0.1:3000/api/v1/pets", 
-        url: "http://localhost:3000/api/v1/pets",
+        url: "http://127.0.0.1:3000/api/v1/pets", 
+        // url: "http://localhost:3000/api/v1/pets",
         method: 'GET', 
         header,
         success(res) {
