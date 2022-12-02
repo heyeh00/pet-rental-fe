@@ -5,7 +5,7 @@
             <image src="{{pet.image_url}}" id="panda" class="panda-pic" />
         </view>
         <view wx:else>
-            <image src="/images/panda.jpg" id="panda" class="panda-pic" />
+            <image src="/images/pet.png" id="panda" class="panda-pic" />
         </view>
     </view>
     <view class="description" > 
@@ -25,7 +25,11 @@
     </view> 
 </view>
 
-<view class="button" bindtap="showModal">Book now!</view>
+<block wx:if="{{pet.user_id === user_id}}">
+</block>
+<block wx:else>
+    <view class="button" bindtap="showModal">Book!</view>
+</block>
 
 
 

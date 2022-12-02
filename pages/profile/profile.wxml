@@ -1,6 +1,6 @@
 <view class="container">
   <view class="ma40 userinfo">
-    <block wx:if="{{loggedIn === true}}">
+    <block wx:if="{{user.image_url}}">
       <image src="{{user.image_url}}" class="userinfo-avatar" mode="cover"/>
       <text>{{user.name}}</text>
     </block>
@@ -10,11 +10,12 @@
         <text>Somebody needs to login 🤔</text>
     </block>
   </view>
-  <view wx:if="{{loggedIn === true}}" class="pa40 vh100">
+  <block wx:if="{{user.image_url}}">
+    <view wx:if="{{pets.length}}" class="pa40 vh100">
     <view class="f36 bold mb10 text-center" id="title">My pets!</view>
     <view wx:for="{{pets}}" wx:key="index" data-id="{{ item.id }}" bindtap="goToPetDetail" class="pa30 radius30 shadow mb30 bg-white">
         <block wx:if="{{item.image_url == null}}">
-            <image src="/images/panda.jpg" mode="aspectFill"/>
+            <image src="/images/pet.png" mode="aspectFill"/>
         </block>
         <block wx:else>
             <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
@@ -32,18 +33,18 @@
                 <image id="gender" src="/images/venus-solid.svg" mode=""/>
             </view>
         </view>
-        <view class="buttons">
-            <button class="mini-btn" style="margin: 0;" type="default" size="mini" id="button-left">Edit</button>
-            <button class="mini-btn" style="margin: 0;" type="warn" size="mini" id="button-right" bindtap="delete" data-pet_id="{{item.id}}">Delete</button>
-        </view>
         <block wx:if="{{item.personality}}">
             <view>{{item.personality}}</view>
         </block>
+        <view class="buttons">
+            <button class="mini-btn" style="margin: 0;" type="warn" size="mini" id="button-right" bindtap="deletePet" data-pet_id="{{item.id}}">Delete</button>
+            <button class="mini-btn" style="margin: 0;" type="default" size="mini" id="button-left">Edit</button>
+        </view>
     </view>
     <view class="f36 bold mb10 text-center" id="title">My Bookings!</view>
     <view wx:for="{{bookings}}" wx:key="index" class="pa30 radius30 shadow mb30 bg-white">
         <block wx:if="{{item.image_url == null}}">
-            <image src="/images/panda.jpg" mode="aspectFill"/>
+            <image src="/images/pet.png" mode="aspectFill"/>
         </block>
         <block wx:else>
             <image src="{{item.image_url}}" mode="aspectFill" class="w100 mb20 radius20" style="height: 250rpx;"></image>
@@ -66,6 +67,12 @@
         <block wx:if="{{item.personality}}">
             <view class="f28 grey mt20">{{item.personality}}</view>
         </block>
+        <view class="buttons">
+                <button class="mini-btn" style="margin: 0;" type="warn" size="mini" id="button-right" bindtap="{destroyBooking}" data-pet_id="{{item.id}}">Delete</button>
+                <text>{{item.id}}</text>
+        </view>
     </view>
   </view>
+  </block>
+  
 </view>

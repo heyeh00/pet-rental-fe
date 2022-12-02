@@ -27,6 +27,11 @@ Page({
         getData(`/pets/${id}`).then((res) => {
             this.setData({ pet: res.data.pet})
             console.log("===ALL PET DATA HERE===", this.data.pet);
+            console.log("ALL PAGE DATA", this.data)
+            console.log("PETS USER ID", this.data.pet.user_id)
+            const userId = app.getUserId()
+            this.setData({user_id: userId})
+            console.log("CURRENT USER ID", this.data.user_id)
         })
     }, 
 

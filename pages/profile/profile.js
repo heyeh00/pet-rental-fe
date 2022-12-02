@@ -9,7 +9,6 @@ Page({
      * Page initial data
      */
     data: {
-        loggedIn: false
     },
 
     /**
@@ -18,15 +17,9 @@ Page({
     onLoad(options) {
 
         if (getApp().globalData.header) {
-            this.getUser();
+            this.getData();
         } else {
-            event.on('tokenReady', this, this.getUser);
-        }
-
-        if (wx.getUserProfile) {
-            this.setData({
-              canIUseGetUserProfile: true
-            })
+            event.on('tokenReady', this, this.getData);
         }
     },
 
@@ -35,36 +28,15 @@ Page({
         wx.getUserProfile({
             desc: 'desc the user to himself',
             success(res) {
-                that.setData({loggedIn: true})
-
-                console.log("GET USER NAME", res.userInfo.nickName)
-                that.setData({name: res.userInfo.nickName})
-                app.globalData.user.name = that.data.name
-
-                console.log("GET USER IMAGE", res.userInfo.avatarUrl)
-                that.setData({image_url: res.userInfo.avatarUrl})
-                app.globalData.user.image_url = that.data.image_url
-
                 const user = {
-                    name: that.data.name,
-                    image_url: that.data.image_url,
+                    name: res.userInfo.nickName,
+                    image_url: res.userInfo.avatarUrl,
                 }
 
-                const header = {
-                    'Authorization': app.globalData.header
-                }
                 getData(`/users/${app.globalData.user.id}`, { user }, "PUT").then((res) => {
                     console.log("===GET USER DATA===", res.data.user);
                     that.setData({ user: res.data.user })
-                  }),
-                getData(`/users/${app.globalData.user.id}/pets`).then((res) => {
-                    console.log("===GET USERS PETS===", res.data.pets);
-                    that.setData({ pets: res.data.pets})
-                })
-                getData(`/users/${app.globalData.user.id}/bookings`).then((res) => {
-                    console.log("===GET USER RENTED PETS===", res.data.pets);
-                    that.setData({ bookings: res.data.pets})
-                })
+                  })
             },
             fail(errors) {
                 console.log("ERRORS", errors)
@@ -72,11 +44,27 @@ Page({
           })
     },
 
-    delete(e) {
+    getPets() {
+        getData(`/users/${app.globalData.user.id}/pets`).then((res) => {
+            console.log("===GET USERS PETS===", res.data.pets);
+            this.setData({ pets: res.data.pets})
+        })
+    },
+
+    getBookings() {
+        getData(`/users/${app.globalData.user.id}/bookings`).then((res) => {
+            console.log("===GET USER RENTED PETS===", res.data.pets);
+            this.setData({ bookings: res.data.pets})
+            console.log("===GET USERS BOOKINGS===", res.data);
+        })
+    },
+
+    deletePet(e) {
         console.log("DLT e", e.currentTarget.dataset)
         const pet_id = e.currentTarget.dataset.pet_id
         const user_id = app.globalData.user.id
         const header = { Authorization: app.getHeader() }
+        const page = this
         wx.showModal({
           cancelText: 'Cancel',
           confirmText: 'Delete',
@@ -87,24 +75,44 @@ Page({
 
             } else if (res.confirm) {
                 console.log("CONFIRM", res) 
-                // getData(`/users/${user_id}/pets/${pet_id}`, "DELETE").then((res) => {
-                //     console.log("DELETED", res.data.pet);
-                // })
-                wx.request({
-                  url: `http://localhost:3000/api/v1/users/${user_id}/pets/${pet_id}`,
-                  method: "DELETE",
-                  header,
-                  success(res) {
-                    console.log("DELETED", res)
-                  }
+                getData(`/users/${user_id}/pets/${pet_id}`, {}, "DELETE").then((res) => {
+                    console.log("DELETED", page, res.data.pets);
+                    page.setData({ pets: res.data.pets })
                 })
             }  
           },
         })
     },
 
-    getUser() {
+    destroyBooking(e) {
+        const pet_id = e.currentTarget.dataset.booking_id
+        console.log("DEL BOOK PET ID", pet_id)
+        console.log("DEL BOOK ALL BOOK", this.bookings)
+        const user_id = app.globalData.user.id
+        console.log("DEL BOOK USERID", user_id)
+        wx.showModal({
+          cancelText: 'Cancel',
+          confirmText: 'Delete',
+          content: "You don't want to book anymore?",
+          title: 'Delete booking?📓',
+          complete: (res) => {
+            if (res.cancel) {
+
+            } else if (res.confirm) {
+                console.log("CONFIRM", res) 
+                // getData(`/users/${user_id}/bookings/${booking_id}`, {}, "DELETE").then((res) => {
+                //     console.log("DELETED", page, res.data.pets);
+                //     page.setData({ pets: res.data.pets })
+                // })
+            }  
+          },
+        })
+    },
+
+    getData() {
         this.setData({ user: app.globalData.user })
+        this.getPets()
+        this.getBookings()
     },
 
     /**
