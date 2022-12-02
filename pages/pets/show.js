@@ -93,7 +93,11 @@ Page({
     onShareAppMessage() {
 
     },
-
+    goToIndex() {
+        wx.switchTab({
+          url: '/pages/pets/index',
+        })
+    },
     showModal() {
         const page = this
         wx.showModal({

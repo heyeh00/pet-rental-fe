@@ -29,9 +29,14 @@
 >
 
     <view class="card-product">
-        <image src="{{pet.image_url}}" mode="aspectFill"></image>
-          <view class="card-product-infos">
-          <view class="card-infos" style="font-size: 40rpx; color: black;">{{pet.name}}</view>
+        <block wx:if="{{pet.image_url}}">
+            <image src="{{pet.image_url}}" mode="aspectFill"></image>
+        </block>
+        <block wx:else>
+            <image src="/images/pet.png" mode=""/>
+        </block>
+        <view class="card-product-infos">
+        <view class="card-infos" style="font-size: 40rpx; color: black;">{{pet.name}}</view>
         <view class="card-infos" style="margin-top: 10rpx;">{{pet.breed}}</view>
 
         <view class="card-small">
